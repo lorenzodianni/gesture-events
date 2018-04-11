@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Gesture Events</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+Open dev tools -> console
+
+<script src="../dist/gesture-events.js"></script>
+<script>
+
+  function logEvent(e) {
+    console.log('\nevent: %s\nposition x: %s y: %s\n\n', e.type, e.touches[0].clientX, e.touches[0].clientY);
+  }
+
+  document.addEventListener('touchstart', logEvent);
+  document.addEventListener('touchmove', logEvent);
+  document.addEventListener('touchend', logEvent);
+
+  window.GestureEvents.swipe(document, {x: 50, y: 100}, {x: 54, y: 102});
+</script>
+</body>
+</html>
