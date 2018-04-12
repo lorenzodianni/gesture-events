@@ -6,8 +6,8 @@ describe('swipe', () => {
   const to: Pointer = {x: 50, y: 12};
 
   test('touchstart', () => {
-    let eventType: string = null;
-    let eventTouch: Touch;
+    let eventType: string = '';
+    let eventTouch: Touch | any = {};
     const testEvent: EventName = 'touchstart';
     const catchEvent = ({type, touches}: TouchEvent) => {
       eventType = type;
@@ -87,8 +87,8 @@ describe('swipe', () => {
   });
 
   test('touchend', () => {
-    let eventType: string = null;
-    let eventTouch: Touch;
+    let eventType: string = '';
+    let eventTouch: Touch | any = {};
     const testEvent: EventName = 'touchend';
     const catchEvent = ({type, touches}: TouchEvent) => {
       eventType = type;
