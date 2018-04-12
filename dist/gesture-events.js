@@ -43,6 +43,8 @@
 	Object.defineProperty(exports, "__esModule", { value: true });
 
 	function createTouchEvent(name, x, y, identifier) {
+	    if (x === void 0) { x = 0; }
+	    if (y === void 0) { y = 0; }
 	    if (identifier === void 0) { identifier = 0; }
 	    var event = document.createEvent('Event');
 	    event.initEvent(name, true, true);
@@ -86,8 +88,10 @@
 	Object.defineProperty(exports, "__esModule", { value: true });
 
 	function tap(el, position) {
-	    event.dispatchTouchEvent(el, 'touchstart', position.x, position.y);
-	    event.dispatchTouchEvent(el, 'touchend', position.x, position.y);
+	    var x = position && position.x;
+	    var y = position && position.y;
+	    event.dispatchTouchEvent(el, 'touchstart', x, y);
+	    event.dispatchTouchEvent(el, 'touchend', x, y);
 	}
 	exports.tap = tap;
 
