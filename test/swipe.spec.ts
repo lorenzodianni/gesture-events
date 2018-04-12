@@ -1,14 +1,14 @@
-import {swipe} from '../src';
+import {EventName, Pointer, swipe} from '../index';
 import {Touch} from '../src/core/touch';
 
 describe('swipe', () => {
-  const from = {x: 30, y: 10};
-  const to = {x: 50, y: 12};
+  const from: Pointer = {x: 30, y: 10};
+  const to: Pointer = {x: 50, y: 12};
 
   test('touchstart', () => {
-    let eventType: string | null = null;
+    let eventType: string = null;
     let eventTouch: Touch;
-    const testEvent: string = 'touchstart';
+    const testEvent: EventName = 'touchstart';
     const catchEvent = ({type, touches}: TouchEvent) => {
       eventType = type;
       eventTouch = touches[0];
@@ -34,7 +34,7 @@ describe('swipe', () => {
     const movementX: number = Math.abs(_from.x - _to.x);
     const movementY: number = Math.abs(_from.y - _to.y);
     const movementNumber = Math.max(movementX, movementY);
-    const testEvent: string = 'touchmove';
+    const testEvent: EventName = 'touchmove';
     const catchEvent = ({type, touches}: TouchEvent) => {
       eventTypes.push(type);
       eventTouches.push(touches[0]);
@@ -64,7 +64,7 @@ describe('swipe', () => {
     let eventTouches: Touch[] = [];
     const _from = {x: 30, y: 10};
     const _to = {x: 28, y: 7};
-    const testEvent: string = 'touchmove';
+    const testEvent: EventName = 'touchmove';
     const catchEvent = ({type, touches}: TouchEvent) => {
       eventTypes.push(type);
       eventTouches.push(touches[0]);
@@ -87,9 +87,9 @@ describe('swipe', () => {
   });
 
   test('touchend', () => {
-    let eventType: string | null = null;
+    let eventType: string = null;
     let eventTouch: Touch;
-    const testEvent: string = 'touchend';
+    const testEvent: EventName = 'touchend';
     const catchEvent = ({type, touches}: TouchEvent) => {
       eventType = type;
       eventTouch = touches[0];
