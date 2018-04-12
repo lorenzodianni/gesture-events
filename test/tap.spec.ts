@@ -1,4 +1,4 @@
-import {EventName, Pointer, tap} from '../index';
+import {EventName, tap} from '../index';
 import {Touch} from '../src/core/touch';
 
 describe('tap', () => {
