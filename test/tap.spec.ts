@@ -1,7 +1,7 @@
 import {EventName, Pointer, tap} from '../index';
 import {Touch} from '../src/core/touch';
 
-describe.only('tap', () => {
+describe('tap', () => {
 
   test('touchstart', () => {
     let eventType: string = '';
